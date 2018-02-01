@@ -1,0 +1,4 @@
+[submodule "cms"]
+	path = cms
+	url = https://github.com/ridi/cms-docker-compose
+	branch = master
