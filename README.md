@@ -1,5 +1,7 @@
 # CMS Bootstrap for Python
 
+A Python example project for CMS-SDK
+
 ## Requirements
 
 - composer
