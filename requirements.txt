@@ -1,2 +1,2 @@
-cmssdk
+ridi-cms-sdk
 flask>=0.10.0
