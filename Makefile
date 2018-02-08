@@ -3,7 +3,6 @@
 install:
 	git submodule init
 	git submodule update
-	cp cms/.env.sample cms/.env
 	make -C cms install
 	pip install -r requirements.txt
 

@@ -11,7 +11,7 @@ A Python example project for CMS-SDK
 ## Setup
 
 1. Make sure global `python` or `pip` commands run the python3 commands. [venv](https://docs.python.org/3/library/venv.html) recommended.
-    1. For venv, `python3 -m venv .`
+    1. For venv, `python3 -m venv .venv`
 1. `make install`
 1. `make cms-up` will start docker containers.
 1. Wait for several seconds until the conainers startup.
