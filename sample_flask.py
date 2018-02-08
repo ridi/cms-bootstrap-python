@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.before_request
 def authorize():
     # Once login is successful, a login cookie is set by CMS.
-    # App should provide the token in cookies.
+    # App should provide the token from the cookie.
     token = request.cookies.get(COOKIE_CMS_TOKEN)
     user = LoginSession(config, token)
     setattr(g, 'user', user)
