@@ -1,6 +1,8 @@
 # CMS Bootstrap for Python
 
-A Python example project for CMS-SDK
+A Python example project for CMS-SDK.
+
+This example uses docker images provided by [cms-docker-compose](https://github.com/ridi/cms-docker-compose). Learn more details about the docker images in the link.
 
 ## Requirements
 
@@ -18,12 +20,6 @@ A Python example project for CMS-SDK
 1. `make cms-db` for sample db migration. If it fails, try again in a few seconds.
 1. `python sample.py` will run the sample code.
 1. `make cms-down` for shutting down the containers.
-
-## (Optional)HTTPS
-
-1. Add `./cms/docker/haproxy/ssl.merge` into your keychain and make it trusted.
-1. Add `127.0.0.1 admin.ridibooks.com` in `/etc/hosts`
-1. open `https://admin.ridibooks.com` in the browser.
 
 ## APIs
 
