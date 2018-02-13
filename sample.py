@@ -1,7 +1,7 @@
-from ridi.cms.Config import Config
-from ridi.cms.CmsClient import AdminUser
-from ridi.cms.CmsClient import AdminMenu
-from ridi.cms.CmsClient import AdminTag
+from ridi.cms.config import Config
+from ridi.cms.cms_client import AdminUser
+from ridi.cms.cms_client import AdminMenu
+from ridi.cms.cms_client import AdminTag
 
 config = Config()
 config.RPC_URL = 'http://localhost'

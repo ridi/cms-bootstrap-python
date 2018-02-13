@@ -1,7 +1,7 @@
 from flask import g, Flask, redirect, request
-from ridi.cms.Config import Config as CmsConfig
-from ridi.cms.CmsClient import AdminAuth
-from ridi.cms.LoginSession import LoginSession, COOKIE_CMS_TOKEN
+from ridi.cms.config import Config as CmsConfig
+from ridi.cms.cms_client import AdminAuth
+from ridi.cms.login_session import LoginSession, COOKIE_CMS_TOKEN
 
 config = CmsConfig()
 config.RPC_URL = 'http://localhost'
