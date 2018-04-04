@@ -5,6 +5,7 @@ install:
 	git submodule update
 	make -C cms install
 	pip install -r requirements.txt
+	cd client && npm install && npm run build
 
 cms-up:
 	make -C cms up
