@@ -28,17 +28,18 @@ def authorize():
 
     return None
 
+# inject user menu data before every template rendering
+@app.context_processor
+def inject_user_menu_data():
+    user = g.get('user', None)
+    admin_menus = admin_auth.getAdminMenu(user.getAdminId())
+    menu_data = list(map(lambda admin_menu: admin_menu.__dict__, admin_menus))
+    return dict(menu_data=menu_data)
+
 # The app route path can be customized in './cms/.env'
 @app.route('/example/home/')
 def index():
-    return 'Hello CMS!'
-
-# Retrieve menus for the user.
-@app.route('/example/user/menus/')
-def menu():
-    user = g.get('user', None)
-    menu_items = admin_auth.getAdminMenu(user.getAdminId())
-    return render_template('index.html', menu_items=list(map(lambda x: x.__dict__, menu_items)))
+    return render_template('index.html', content='Hello CMS!')
 
 if __name__ == "__main__":
     # If the port changes, './cms/.env' file also needs to be updated.
