@@ -43,4 +43,4 @@ def index():
 
 if __name__ == "__main__":
     # If the port changes, './cms/.env' file also needs to be updated.
-    app.run(host="127.0.0.1", port=8080, threaded=True)
+    app.run(host="127.0.0.1", port=8080, threaded=True, debug=True)
