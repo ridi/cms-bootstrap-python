@@ -1,9 +1,12 @@
 const path = require('path');
 
+process.env.NODE_ENV = 'development';
+
 const OUTPUT_PATH = path.resolve(__dirname, '..', 'static', 'dist');
 const SRC_PATH = path.resolve(__dirname, 'src');
 
 module.exports = {
+  mode: process.env.NODE_ENV,
   devtool: 'cheap-source-map',
   entry: {
     menu: path.resolve(SRC_PATH, 'menu'),
