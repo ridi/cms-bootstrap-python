@@ -28,7 +28,7 @@ def authorize():
 
     return None
 
-# inject user menu data before every template rendering
+# Inject user menu data before every template rendering
 @app.context_processor
 def inject_user_menu_data():
     user = g.get('user', None)
