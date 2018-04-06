@@ -39,7 +39,7 @@ def inject_user_menu_data():
 # The app route path can be customized in './cms/.env'
 @app.route('/example/home/')
 def index():
-    return render_template('index.html', content='Hello CMS!')
+    return render_template('index.jinja2', content='Hello CMS!')
 
 if __name__ == "__main__":
     # If the port changes, './cms/.env' file also needs to be updated.

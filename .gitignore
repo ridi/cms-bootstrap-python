@@ -107,3 +107,6 @@ venv.bak/
 bin
 pyvenv.cfg
 pip-selfcheck.json
+
+# dependencies
+node_modules/

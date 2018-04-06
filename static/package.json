@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ridi/cms-ui": "^0.2.1"
+  }
+}
