@@ -31,9 +31,14 @@ def authorize():
 # Inject user menu data before every template rendering
 @app.context_processor
 def inject_user_menu_data():
+    # Retrieve AdminMenu list
     user = g.get('user', None)
     admin_menus = admin_auth.getAdminMenu(user.getAdminId())
+
+    # Convert each AdminMenu to dict so that it can be serialized to JSON.
     menu_data = list(map(lambda admin_menu: admin_menu.__dict__, admin_menus))
+
+    # By returning this, menu_data is accessible inside any template.
     return dict(menu_data=menu_data)
 
 # The app route path can be customized in './cms/.env'
