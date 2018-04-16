@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: .5rem;
+}
+
+#menu_container {
+  margin: .5rem;
+}
+
+#content {
+  flex: 1;
+  margin: .5rem;
+}

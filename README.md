@@ -19,7 +19,7 @@ This example uses docker images provided by [cms-docker-compose](https://github.
 1. Wait for several seconds until the conainers startup.
 1. `make cms-db` for sample db migration. If it fails, try again in a few seconds.
 1. `python sample.py` will run the sample code.
-    1. Or `python sample_flask.py` will run the sample flask web server, then you can browse to `127.0.0.1`.
+    1. Or `python sample_flask.py` will run the sample flask web server, then you can browse to `http://127.0.0.1/example/home`.
 1. `make cms-down` for shutting down the containers.
 
 ## APIs
