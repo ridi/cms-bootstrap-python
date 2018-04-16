@@ -6,9 +6,6 @@
 
     <title>CMS Bootstrap for Python</title>
 
-    <!-- Load Bootstrap CSS for cms-ui. -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <!-- Load page specific CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 
@@ -16,7 +13,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='node_modules/@ridi/cms-ui/dist/cms-ui.var.js') }}"></script>
   </head>
   <body>
-    <div id="menu"></div>
+    <div id="menu_container"></div>
     <div id="content">{{ content }}</div>
 
     <script type="text/javascript">
@@ -27,7 +24,7 @@
         items: {{ menu_data | tojson }}, // Inject menu data using server-side rendering.
       });
 
-      const menuContainer = document.getElementById('menu');
+      const menuContainer = document.getElementById('menu_container');
 
       // Make sure to container DOM element is loaded before call render function.
       render(menuElement, menuContainer);
