@@ -1,7 +1,8 @@
 from flask import g, Flask, redirect, request, render_template
 from ridi.cms.config import Config as CmsConfig
 from ridi.cms.cms_client import AdminAuth
-from ridi.cms.login_session import LoginSession, COOKIE_CMS_TOKEN
+from ridi.cms.login_session import COOKIE_CMS_TOKEN, COOKIE_ADMIN_ID
+from ridi.cms.thrift.Errors.ttypes import *
 
 config = CmsConfig()
 config.RPC_URL = 'http://localhost'
@@ -16,14 +17,20 @@ def authorize():
         return None
 
     # Once login is successful, a login cookie is set by CMS.
-    # App should provide the token from the cookie.
+    # App should provide the token to authenticate the user.
     token = request.cookies.get(COOKIE_CMS_TOKEN)
-    user = LoginSession(config, token)
-    setattr(g, 'user', user)
 
-    # Authorize the user with the token and see if the user is allowed for the path.
-    if not admin_auth.authorize(user, request.path):
-        login_url = admin_auth.getLoginUrl(request.path)
+    try:
+        # Tag is similar to the concept of role or permission.
+        # Each endpoint should have required tags.
+        # When users access to the endpoint with the required tags, the user can succeed the authorization.
+        required_tag_names = ['예제']
+
+        # See if the user has the required tags by inspecting the user's token.
+        admin_auth.authorizeByTag(token, required_tag_names)
+    except (NoTokenException, MalformedTokenException, ExpiredTokenException, UnauthorizedException, TException) as e:
+        print(e)
+        login_url = admin_auth.getLoginUrl(return_url=request.path)
         return redirect(login_url)
 
     return None
@@ -32,8 +39,8 @@ def authorize():
 @app.context_processor
 def inject_user_menu_data():
     # Retrieve AdminMenu list
-    user = g.get('user', None)
-    admin_menus = admin_auth.getAdminMenu(user.getAdminId())
+    admin_id = request.cookies.get(COOKIE_ADMIN_ID)
+    admin_menus = admin_auth.getAdminMenu(admin_id)
 
     # Convert each AdminMenu to dict so that it can be serialized to JSON.
     menu_data = list(map(lambda admin_menu: admin_menu.__dict__, admin_menus))

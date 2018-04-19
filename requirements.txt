@@ -1,2 +1,2 @@
-ridi-cms-sdk>=2.1.0
+ridi-cms-sdk>=2.3.2
 flask>=0.10.0
