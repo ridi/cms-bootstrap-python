@@ -4,6 +4,7 @@ install:
 	git submodule init
 	git submodule update
 	make -C cms install
+	make -C cms pull
 	pip install -r requirements.txt
 	cd static && npm install
 
