@@ -17,17 +17,19 @@
     <div id="content">{{ content }}</div>
 
     <script>
-      const { createElement, render, Menu } = CmsUi;
+      (function renderMenu() { // Avoid using global scope.
+        const { createElement, render, Menu } = CmsUi;
 
-      // Create element with Menu component and its properties.
-      const menuElement = createElement(Menu, {
-        items: {{ menu_data | tojson }}, // Inject menu data using server-side rendering.
-      });
+        // Create element with Menu component and its properties.
+        const menuElement = createElement(Menu, {
+          items: {{ menu_data | tojson }}, // Inject menu data using server-side rendering.
+        });
 
-      const menuContainer = document.getElementById('menu_container');
+        const menuContainer = document.getElementById('menu_container');
 
-      // Make sure to container DOM element is loaded before call render function.
-      render(menuElement, menuContainer);
+        // Make sure to container DOM element is loaded before call render function.
+        render(menuElement, menuContainer);
+      })();
     </script>
   </body>
 </html>
