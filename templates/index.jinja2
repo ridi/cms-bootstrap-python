@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 
     <!-- Load cms-ui in <head> to avoid flickering. -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@0.3.1/dist/cms-ui.var.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ridi/cms-ui@0.3.1/dist/cms-ui.var.js"></script>
   </head>
   <body>
     <div id="menu_container"></div>
     <div id="content">{{ content }}</div>
 
-    <script type="text/javascript">
+    <script>
       const { createElement, render, Menu } = CmsUi;
 
       // Create element with Menu component and its properties.
