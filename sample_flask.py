@@ -24,7 +24,7 @@ def authorize():
         # Tag is similar to the concept of role or permission.
         # Each endpoint should have required tags.
         # When users access to the endpoint with the required tags, the user can succeed the authorization.
-        required_tag_names = ['예제']
+        required_tag_names = ['example']
 
         # See if the user has the required tags by inspecting the user's token.
         admin_auth.authorizeByTag(token, required_tag_names)
