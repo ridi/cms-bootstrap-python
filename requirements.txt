@@ -1,2 +1,3 @@
-ridi-cms-sdk>=2.3.2
+ridi-cms-sdk>=2.3.4
 flask>=0.10.0
+thrift==0.10.0

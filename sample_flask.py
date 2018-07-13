@@ -28,10 +28,12 @@ def authorize():
 
         # See if the user has the required tags by inspecting the user's token.
         admin_auth.authorizeByTag(token, required_tag_names)
-    except (NoTokenException, MalformedTokenException, ExpiredTokenException, UnauthorizedException, TException) as e:
+    except (ExpiredTokenException, NoTokenException, MalformedTokenException, UnauthorizedException) as e:
         print(e)
-        login_url = admin_auth.getLoginUrl(return_url=request.path)
+        login_url = admin_auth.getAuthorizeUrl(return_url=request.path)
         return redirect(login_url)
+    except (TException) as e:
+        raise e
 
     return None
 
