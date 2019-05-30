@@ -4,6 +4,8 @@ A Python example project for CMS-SDK.
 
 This example uses docker images provided by [cms-docker-compose](https://github.com/ridi/cms-docker-compose). Learn more details about the docker images in the link.
 
+> If you need Django rest framework exmaple; [click here](sample_drf_middleware/README.md)
+
 ## Requirements
 
 - composer
