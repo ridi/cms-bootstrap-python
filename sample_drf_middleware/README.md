@@ -23,15 +23,20 @@ If you want to understand this more, check out the [basic drf authentication and
 - authentication.py
 
 2. Override the import path in the files.
+
 ```python
 # permissions.py
 from ${PROJECT_PATH}.cms  import admin_auth
 
 # authentication.py
 from ${PROJECT_PATH}.cms import admin_user, admin_auth
+
+# cms.py
+config.RPC_URL = 'https://YOUR_CMS_RPC_HTTPS_DOMAIN'
 ```
 
 3. Defines the variables to use for authentication
+
 ```python
 # settings.py
 
@@ -55,8 +60,8 @@ CMS_AUTH_DISABLE = os.environ.get('CMS_AUTH_DISABLE', False)
 ```
 
 4. Enjoy it! example 
-```
-...
+
+```python
 class UserListCreateAPIView(generics.ListCreateAPIView):
     required_tags = ["example",] # Minimum permissions to access this API View
     queryset = User.objects.all()
