@@ -22,7 +22,7 @@ If you want to understand this more, check out the [basic drf authentication and
 - permissions.py
 - authentication.py
 
-2. Override the import path in the files.
+2. Override the hardcorded string in the files.
 
 ```python
 # permissions.py
